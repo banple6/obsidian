@@ -1,0 +1,34 @@
+name: Obsidian Notes Sync
+
+on:
+  repository_dispatch:
+    types: [note_update]
+
+jobs:
+  sync_notes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Process Note Update
+        if: github.event.action == 'note_update'
+        run: |
+          echo "Processing note update from ChatGPT"
+          
+          # 获取事件数据
+          NOTE_PATH="${{ github.event.client_payload.path }}"
+          NOTE_CONTENT="${{ github.event.client_payload.content }}"
+          COMMIT_MESSAGE="${{ github.event.client_payload.message }}"
+          
+          # 创建或更新笔记
+          mkdir -p "$(dirname "$NOTE_PATH")"
+          echo "$NOTE_CONTENT" > "$NOTE_PATH"
+          
+          # 提交更改
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add "$NOTE_PATH"
+          git commit -m "$COMMIT_MESSAGE"
+          git push
