@@ -1,0 +1,37 @@
+{
+  "name": "obsidian-chatgpt-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for integrating Obsidian with ChatGPT",
+  "type": "module",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node build/index.js",
+    "dev": "tsc -w",
+    "watch": "tsc -w --preserveWatchOutput"
+  },
+  "imports": {
+    "#sdk/*": {
+      "import": "@modelcontextprotocol/sdk/dist/esm/*"
+    }
+  },
+  "keywords": [
+    "obsidian",
+    "chatgpt",
+    "mcp"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^24.3.3",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.16.0",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "zod": "^3.25.76"
+  }
+}
