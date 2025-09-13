@@ -1,0 +1,19 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Obsidian 笔记助手",
+  "name_for_model": "Obsidian Notes Assistant",
+  "description_for_human": "管理您的 Obsidian 笔记，支持写入、更新、查看和搜索笔记。",
+  "description_for_model": "通过 GitHub API 管理 Obsidian 笔记的 Actions。支持笔记的创建、更新、读取和搜索功能。",
+  "auth": {
+    "type": "oauth",
+    "client_url": "https://github.com/login/oauth/authorize",
+    "scope": "repo"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://raw.githubusercontent.com/github/rest-api-description/main/descriptions/api.github.com/api.github.com.json"
+  },
+  "logo_url": "https://obsidian.md/favicon.ico",
+  "contact_email": "support@example.com",
+  "legal_info_url": "https://example.com/legal"
+}
