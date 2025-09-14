@@ -5,9 +5,13 @@
   "description_for_human": "管理您的 Obsidian 笔记，支持写入、更新、查看和搜索笔记。",
   "description_for_model": "通过 GitHub API 管理 Obsidian 笔记的 Actions。支持笔记的创建、更新、读取和搜索功能。",
   "auth": {
-    "type": "oauth",
+    "type": "oauth2",
     "client_url": "https://github.com/login/oauth/authorize",
-    "scope": "repo"
+    "authorization_url": "https://github.com/login/oauth/access_token",
+    "scope": "repo",
+    "client_id": "Ov23lif615p0XcP6vVUg",
+    "client_secret": "1070bf4a415bceab1032e3d390322cff3c006556",
+    "authorization_content_type": "application/json"
   },
   "api": {
     "type": "openapi",
