@@ -6,6 +6,7 @@ info:
 servers:
   - url: https://api.github.com
     description: GitHub API Production Server
+    variables: {}
 paths:
   /repos/{owner}/{repo}/contents/{path}:
     get:
