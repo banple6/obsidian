@@ -5,12 +5,7 @@ info:
   version: 'v1'
 servers:
   - url: https://api.github.com
-    description: GitHub API
-    variables:
-      protocol:
-        enum:
-          - https
-        default: https
+    description: GitHub API Production Server
 paths:
   /repos/{owner}/{repo}/contents/{path}:
     get:
