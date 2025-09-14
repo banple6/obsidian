@@ -5,6 +5,12 @@ info:
   version: 'v1'
 servers:
   - url: https://api.github.com
+    description: GitHub API
+    variables:
+      protocol:
+        enum:
+          - https
+        default: https
 paths:
   /repos/{owner}/{repo}/contents/{path}:
     get:
@@ -38,6 +44,29 @@ paths:
       responses:
         '200':
           description: 成功获取笔记内容
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    description: 文件名
+                  path:
+                    type: string
+                    description: 文件路径
+                  sha:
+                    type: string
+                    description: 文件的 SHA 哈希值
+                  size:
+                    type: integer
+                    description: 文件大小（字节）
+                  content:
+                    type: string
+                    description: Base64 编码的文件内容
+                  encoding:
+                    type: string
+                    description: 内容的编码方式（通常是 base64）
     put:
       operationId: updateNote
       summary: 更新或创建笔记
