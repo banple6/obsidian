@@ -11,7 +11,7 @@
   },
   "api": {
     "type": "openapi",
-    "url": "https://raw.githubusercontent.com/github/rest-api-description/main/descriptions/api.github.com/api.github.com.json"
+    "url": "https://raw.githubusercontent.com/banple6/obsidian/main/.well-known/openapi.yaml"
   },
   "logo_url": "https://obsidian.md/favicon.ico",
   "contact_email": "support@example.com",
