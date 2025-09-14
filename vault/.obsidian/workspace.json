@@ -150,9 +150,19 @@
               "icon": "lucide-list",
               "title": "integration-test 的大纲"
             }
+          },
+          {
+            "id": "b929aabb71ddea28",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
