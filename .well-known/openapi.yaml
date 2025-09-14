@@ -1,0 +1,83 @@
+openapi: 3.0.1
+info:
+  title: Obsidian Notes API
+  description: 通过 GitHub API 管理 Obsidian 笔记
+  version: 'v1'
+servers:
+  - url: https://api.github.com
+paths:
+  /repos/{owner}/{repo}/contents/{path}:
+    get:
+      operationId: getNote
+      summary: 获取笔记内容
+      parameters:
+        - name: owner
+          in: path
+          required: true
+          schema:
+            type: string
+          description: 仓库所有者
+        - name: repo
+          in: path
+          required: true
+          schema:
+            type: string
+          description: 仓库名称
+        - name: path
+          in: path
+          required: true
+          schema:
+            type: string
+          description: 笔记文件路径
+        - name: ref
+          in: query
+          required: false
+          schema:
+            type: string
+          description: 分支名或提交 SHA
+      responses:
+        '200':
+          description: 成功获取笔记内容
+    put:
+      operationId: updateNote
+      summary: 更新或创建笔记
+      parameters:
+        - name: owner
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: repo
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: path
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - message
+                - content
+              properties:
+                message:
+                  type: string
+                  description: 提交信息
+                content:
+                  type: string
+                  description: Base64 编码的文件内容
+                sha:
+                  type: string
+                  description: 文件的当前 SHA
+      responses:
+        '200':
+          description: 笔记更新成功
+        '201':
+          description: 笔记创建成功
